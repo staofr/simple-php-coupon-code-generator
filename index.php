@@ -11,7 +11,7 @@
 		$symbols = $_POST['symbols'];
 		$random_register = $_POST['random_register'] == 'false' ? false : true;
 		$mask = $_POST['mask'] == '' ? false : $_POST['mask'];
-		$coupons = coupon::generate_coupons($no_of_coupons, $length, $prefix, $suffix, $numbers, $letters, $symbols, $random_register, $mask);
+		$coupons = coupon::generate_coupons($no_of_coupons, ['length' => $length, 'prefix' => $prefix, 'suffix' => $suffix, 'numbers' => $numbers, 'letters' => $letters, 'symbols' => $symbols, 'random_register' => $random_register, 'mask' => $mask]);
 		foreach ($coupons as $key => $value) {
 			echo $value."\n ";
 		}
@@ -23,7 +23,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PHP - Coupon Code Generator</title>
+	<title>MASTER SUN - Générateur De Codes Promo</title>
 	 <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -31,7 +31,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>PHP - Coupon Code Generator</h2>
+				<h2>MASTER SUN - Générateur De Codes Promo  👉<a href="https://promo.msun.fr/code/info">IMPORTANT</a>
+</h2>
 				<form action="index.php" method="post" id="coupon_form">
 					<table class="table table-striped">
 						<tr>
@@ -56,13 +57,13 @@
 							<th>Prefix</th>
 							<td>string</td>
 							<td></td>
-							<td><input class="form-control" type="text" name="prefix" value="prefix-" /></td>
+							<td><input class="form-control" type="text" name="prefix" value="MSUN" /></td>
 						</tr>
 						<tr>
 							<th>Suffix</th>
 							<td>string</td>
 							<td></td>
-							<td><input class="form-control" type="text" name="suffix" value="-suffix" /></td>
+							<td><input class="form-control" type="text" name="suffix" value="Veuillez personnaliser" /></td>
 						</tr>
 						<tr>
 							<th>Numbers</th>
@@ -112,7 +113,7 @@
 							<th>Mask</th>
 							<td>string or boolean</td>
 							<td>false</td>
-							<td><input class="form-control" type="text" name="mask" value="XXX-XXX" /></td>
+							<td><input class="form-control" type="text" name="mask" value="-XXXXXX-2026-" /></td>
 						</tr>
 					</table>
 					<div class="col-md-offset-8 col-md-4">
